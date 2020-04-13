@@ -1,5 +1,5 @@
 ### All color codes are in hsv format ###
-""" Run using 'python3 findcolor.py -image *name_of_test_img*'"""
+""" Run using 'python3 findcolor.py --image *name_of_test_img*'"""
 import cv2
 import numpy as np
 import argparse
