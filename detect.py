@@ -4,6 +4,7 @@ import cv2
 import numpy as np
 import argparse
 from dictionary import colors
+from shape_detection import shape_detector
 import time
 
 # Read an image through command line
@@ -12,13 +13,17 @@ ap.add_argument("-i", "--image", required=True, help="Path to image")
 args = vars(ap.parse_args())
 
 image = cv2.imread(args["image"])
+gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
+shape_detector(gray_image)
+
+'''
 image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
 #-----------------------------------------------------------------------#
 
-# print (colors['HSV'])
 for color in colors['HSV']:
-    # print(colors['HSV'][color])
+    #print(colors['HSV'][color])
 
     boundaries = [colors['HSV'][color]]
     
@@ -42,4 +47,7 @@ for color in colors['HSV']:
 # For loop through the colored folder
 # implement find_shape.py here
 # end loop
+
+'''
 cv2.destroyAllWindows()
+
