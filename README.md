@@ -1,12 +1,20 @@
-# Shape & Letter Detection
+# Letter Recognition
 
+<h> Current State: Can recognize numbers (can be trained to recognize more features like capital and miniscule
+ english letters<h>
+ 
 How it works:
 -------------
-<i>The main function is detect.py; the entire process will begin here</i>
+<h> We will take advantage of a supervised learning technique known as KNearestNeighbor (KNN) <h>
  
-<b>Step 1: Shape Region Estimation & Cropping </b>
-
+<b>Step 1: Train the model </b>
  <div>
-   <p>From detect.py, we call our shape_detector function. This function will be responsible for returning a masked image containing only the regions it believes to contain any shapes</p> 
+   <p>We make several calls to read training images stored in our TrainingImages folder</p> 
+   <p>We organize these images into an array and create a corresponding label array <p>
+   <p>Feed these two arrays into the the KNN training class available through openCV <p>
+ </div>
+<b>Step 2: Reap the reward </b>
+ <div>
+  <p>Once the training is done we can make calls to find the nearest neighbors for a given test image <p>
  </div>
 
