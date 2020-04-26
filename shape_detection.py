@@ -26,11 +26,16 @@ def shape_detector(gray_image):
     # canny edge detection
     canny = cv2.Canny(sharpened3, 0, 80, 1)
 
+    contours, _ = cv2.findContours(canny, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+    cv2.drawContours(gray_image, contours, -1, (255, 255, 0), 1)
+
+    '''
     while 1:
         k = cv2.waitKey(1) & 0xFF
 
         contours, _ = cv2.findContours(canny, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
-        cv2.drawContours(gray_image, contours, -1, (255,255,0) , 1)
+        cv2.drawContours(gray_image, contours, -1, (255, 255, 0), 1)
+
 
         cv2.imshow('gray', gray_image)
         cv2.imshow('prebilateral', pre_bilateral)
@@ -46,5 +51,6 @@ def shape_detector(gray_image):
 
         if k == ord('q'):
             break
+        '''
 
 

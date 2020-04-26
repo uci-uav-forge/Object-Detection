@@ -15,9 +15,8 @@ args = vars(ap.parse_args())
 image = cv2.imread(args["image"])
 gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-shape_detector(gray_image)
+# shape_detector(gray_image)
 
-'''
 image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
 #-----------------------------------------------------------------------#
@@ -35,6 +34,7 @@ for color in colors['HSV']:
         #find colors in the bounds and apply mask
         colormask = cv2.inRange(image, lower, upper)
         output = cv2.bitwise_and(image, image, mask=colormask)
+        shape_detector(output)
 
         #file the images
         timestamp = 'colored/' + color + time.strftime('%H%M%S') + '.jpg'
@@ -48,6 +48,5 @@ for color in colors['HSV']:
 # implement find_shape.py here
 # end loop
 
-'''
 cv2.destroyAllWindows()
 
