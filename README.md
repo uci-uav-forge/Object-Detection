@@ -1,7 +1,6 @@
 # Letter Recognition
 
-<h> Current State: Can recognize numbers (can be trained to recognize more features like capital and miniscule
- english letters<h>
+<h> Current State: Can recognize numbers and letters but we need to figure out how to make it more accurate<h>
  
 How it works:
 -------------
