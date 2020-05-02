@@ -24,7 +24,7 @@ How it works:
    <p>Load the training information stored in .npz file</p>
    <p>Create a KNN object and train it (built in OpenCV class and methods) </p>
 </div>
-<b>Step 2: Reap the reward </b>
+<b>Step 3: Reap the reward </b>
  <div>
   <p>Once the training is done, we can read our test image, extract its HOG features, and find its nearest feature neighbors (built in OpenCV method) <p>
  </div>
