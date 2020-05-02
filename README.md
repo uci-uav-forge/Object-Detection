@@ -28,17 +28,22 @@ How it works:
  <div>
   <p>Once the training is done, we can read our test image, extract its HOG features, and find its nearest feature neighbors (built in OpenCV method) <p>
  </div>
- 
+
+
+ <b> Example Input Image: </b> 
 -------------
-<b> Example Input Image: </b> 
 
 ![](TestImage/A.png) 
 
 -------------
 <b> Example Input HOG Features: </b>
+-------------
+
 
 ![](A_HOG.png)
+
 -------------
 <b> Example Output: </b> 
+-------------
 
 ![](example_output.png)
