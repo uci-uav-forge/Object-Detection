@@ -1,15 +1,17 @@
 # Letter Recognition
 
 <h> Current State: Can recognize numbers and letters but we need to figure out how to make it more accurate<h>
+<h style= "color:green"> Latest Change: Now using HOG Features instead of pixel value features for improved accuracy <h>
  
 How it works:
 -------------
 <h> We will take advantage of a supervised learning technique known as KNearestNeighbor (KNN) <h>
  
-<b>Step 1: Train the model </b>
+<b>Step 1: Collect Data & Train </b>
  <div>
    <p>We make several calls to read training images stored in our TrainingImages folder</p> 
-   <p>We organize these images into an array and create a corresponding label array <p>
+   <p style = "color:green"> We extract HOG features from these training images <p> 
+   <p>We organize image features into an array and create a corresponding label array <p>
    <p>Feed these two arrays into the the KNN training class available through openCV <p>
  </div>
 <b>Step 2: Reap the reward </b>
