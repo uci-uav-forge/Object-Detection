@@ -31,6 +31,7 @@ How it works:
  
 -------------
 <b> Example Input Image: </b> 
+
 ![](TestImage/A.png) 
 
 -------------
