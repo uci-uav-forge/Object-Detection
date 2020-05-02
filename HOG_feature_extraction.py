@@ -1,9 +1,6 @@
 import cv2
 from skimage.feature import hog
 from skimage import data, exposure
-import sys
-import numpy as np
-np.set_printoptions(threshold=sys.maxsize)
 
 # constant image dimensions (test images must match these dimensions)
 HEIGHT = 128

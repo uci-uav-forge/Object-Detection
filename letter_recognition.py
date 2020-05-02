@@ -18,7 +18,7 @@ with np.load('knn_alphabet_data.npz') as data:
 
 # reading test image
 test_image_arr = []
-test_image = cv2.imread('TestImage\\6.png', cv2.IMREAD_GRAYSCALE)
+test_image = cv2.imread('TestImage\\H.png', cv2.IMREAD_GRAYSCALE)
 
 # extracting hog features and flattening
 test_image = hog_extractor(test_image)
@@ -64,8 +64,8 @@ if average_num_distance < average_alpha_distance:
 if result > 10:
     result = chr(result)
 
-print(chr(int(ret_alpha)))
-print(ret_num)
+print("Potential Letter:", chr(int(ret_alpha)))
+print("Potential Number:", int(ret_num))
 print("Average distance for num:", average_num_distance)
 print("Average distance for alpha:", average_alpha_distance)
 # printing result
