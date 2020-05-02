@@ -35,14 +35,14 @@ How it works:
 
 ![](TestImage/A.png) 
 
--------------
+
 <b> Example Input HOG Features: </b>
 -------------
 
 
 ![](A_HOG.png)
 
--------------
+
 <b> Example Output: </b> 
 -------------
 
