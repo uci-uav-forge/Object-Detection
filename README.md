@@ -1,7 +1,10 @@
 # Letter Recognition
-
+<div>
 <h> Current State: Can recognize numbers and letters but we need to figure out how to make it more accurate<h>
-<h style= "color:green"> Latest Change: Now using HOG Features instead of pixel value features for improved accuracy <h>
+</div>
+<div>
+<h style= "color:green'"> Latest Change: Now using HOG Features instead of pixel value features for improved accuracy <h>
+</div>
  
 How it works:
 -------------
@@ -10,7 +13,7 @@ How it works:
 <b>Step 1: Collect Data & Train </b>
  <div>
    <p>We make several calls to read training images stored in our TrainingImages folder</p> 
-   <p style = "color:green"> We extract HOG features from these training images <p> 
+   <p style = "color:green;"> We extract HOG features from these training images <p> 
    <p>We organize image features into an array and create a corresponding label array <p>
    <p>Feed these two arrays into the the KNN training class available through openCV <p>
  </div>
