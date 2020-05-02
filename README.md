@@ -14,6 +14,7 @@ How it works:
  <div>
    <p>We make several calls to read training images stored in our TrainingImages folder</p> 
    <p style = "color:green;"> We extract HOG features from these training images <p> 
+   <div>![Original Image](TestImage/A.png) ![HogImage](A_HOG.png) </div>
    <p>We organize image features into an array and create a corresponding label array <p>
    <p>Feed these two arrays into the the KNN training class available through openCV <p>
  </div>
