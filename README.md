@@ -11,7 +11,7 @@ How it works:
 -------------
 <h> We will take advantage of a supervised learning technique known as KNearestNeighbor (KNN) <h>
  
-<b>Step 1: Collect Data & Train </b>
+<b>Step 1: Collect Data & Save It </b>
  <div>
    <p>Read from the thousands of training images stored in our TrainingImages folder</p> 
    <p>Extract HOG features from these training images <p> 
