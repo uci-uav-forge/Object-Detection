@@ -13,14 +13,20 @@ How it works:
  
 <b>Step 1: Collect Data & Train </b>
  <div>
-   <p>We make several calls to read training images stored in our TrainingImages folder</p> 
-   <p>We extract HOG features from these training images <p> 
-   <p>We organize image features into an array and create a corresponding label array <p>
-   <p>Feed these two arrays into the the KNN training class available through openCV <p>
+   <p>Read from the thousands of training images stored in our TrainingImages folder</p> 
+   <p>Extract HOG features from these training images <p> 
+   <p>Organize image features into 1d array and create a corresponding 1d label array <p>
+   <p>Save the training data in .npz file for easy and faster access later <p>
+   <p>Note: Training can take up to 3 minutes depending on the number of training images chosen</p>
  </div>
+<b>Step 2: Train KNN "Model" </b>
+<div>
+   <p>Load the training information stored in .npz file</p>
+   <p>Create a KNN object and train it (built in OpenCV class and methods) </p>
+</div>
 <b>Step 2: Reap the reward </b>
  <div>
-  <p>Once the training is done we can make calls to find the nearest neighbors for a given test image <p>
+  <p>Once the training is done, we can read our test image, extract its HOG features, and find its nearest feature neighbors (built in OpenCV method) <p>
  </div>
 
 <div> <b> Example HOG Feature: </b> </div>
