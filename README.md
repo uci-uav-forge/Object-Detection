@@ -31,7 +31,9 @@ How it works:
 </div>
 <b>Step 3: Shape Detection </b>
  <div>
-  <p>Niva pls update here :)<p>
+  <p>Detects the corners and edges of the shapes<p>
+  <p>Classifies the shape based on the number of corners and edges<p>
+  <p>Note: only works for a very limited amount of shapes,so need to improve that<p>
  </div>
 
 
