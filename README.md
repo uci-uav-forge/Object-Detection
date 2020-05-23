@@ -1,3 +1,11 @@
+# Object Detection 
+<h>Updated merges with Master as of May 22, 2020</p>
+<div>
+<p> <b>Current State</b>: There are currently separate functions made for image cleaning, cropping, color detection, shape detection, and letter detection. 
+<p> <b>Next Steps</b>: We will combine the image cleaning with color detection, and cropping with shape detection before removing the image cleaning branch. Shape detection and letter detection will work on using Keras to increase accuracy.
+
+<div>
+<div>
 # Image Cleaning
 <div>
 <p> <b>Current State</b>: Cable to remove small markings from an image with a shape. (isolates the shape). Stil having some trouble with identiying larged bodies since they are disconnected pixels.</p>
@@ -10,7 +18,6 @@ How it works:
 -------------
 <h> We will take advantage of a supervised learning technique known as KNearestNeighbor (KNN) <h>
  
-<<<<<<< HEAD
 <b>Step 1: Pass image to morphology library</b>
  <div>
    <p>Filters the uneccessary pixels but is unable to detect larger bodies</p> 
