@@ -1,13 +1,23 @@
 import cv2 as cv
 import numpy as np
 import pdb
+import argparse
+from pathlib import Path, PurePath
+import os
 #669*497
 
+
 def main():
+	ap = argparse.ArgumentParser()
+	ap.add_argument("-i", "--image", required=True, help="Path to image")
+	args = vars(ap.parse_args())
+	global remove
+	remove = False
+	global counter
+	counter = 0
 	red = []
-	green = [];
-	blue = [];
-	img = cv.imread('brown.jpg', cv.IMREAD_GRAYSCALE)
+	orgimg = cv.imread(args['image'])
+	img = cv.imread(args['image'], cv.IMREAD_GRAYSCALE)
 	for i in range(img.shape[0]):
 		for j in range(img.shape[1]):
 			if(img[i][j] > 0):
@@ -16,74 +26,34 @@ def main():
 	if(len(red) > 10000):
 		for i in red:
 			img[i[0]][i[1]] = 0;
+			remove = True
 	kernel = np.ones((3,5),np.uint8)
 	img = cv.morphologyEx(img, cv.MORPH_OPEN, kernel)
-	# print(img.shape[1])
-	# for i in range(img.shape[0]):
-	# 	for j in range(img.shape[1]):
-	# 		if(img[i][j][0] > img[i][j][1]):
-	# 			if(img[i][j][0] > img[i][j][2]):
-	# 				red.append([i, j])
-	# 			else:
-	# 				blue.append([i, j])
-	# 		elif(img[i][j][0] < img[i][j][1]):
-	# 			if(img[i][j][1] > img[i][j][2]):
-	# 				green.append([i, j])
-	# 			else:
-	# 				blue.append([i, j])
-	# for i in red:
-	# 	img[i[0]][i[1]][0] = 0
-	# 	img[i[0]][i[1]][1] = 0
-	# 	img[i[0]][i[1]][2] = 0
-	#
-	# # for i in green:
-	# # 	img[i[0]][i[1]][0] = 0
-	# # 	img[i[0]][i[1]][1] = 0
-	# # 	img[i[0]][i[1]][2] = 0
-	#
-	# for i in blue:
-	# 	img[i[0]][i[1]][0] = 0
-	# 	img[i[0]][i[1]][1] = 0
-	# 	img[i[0]][i[1]][2] = 0
-	cv.imshow('image',img)
+	for i in range(img.shape[0]):
+		find = False
+		for j in range(img.shape[1]):
+			if(img[i][j] > 0):
+				counter = counter + 1
+				print(counter)
+				if(img[i][j] > 0 and counter > 100):
+					save_name_org = PurePath("object", Path(args['image']).stem + f"_shape.jpg")
+					print(save_name_org)
+					cv.imwrite(str(save_name_org), img)
+					save_name_org = PurePath("original_good", Path(args['image']).stem + f"_shape.jpg")
+					print(save_name_org)
+					cv.imwrite(str(save_name_org), orgimg)
+					find = True
+					break
+		if(find == True):
+			break
+	print(find, counter)
+	if(find == False):
+		print("here")
+		save_name_org = PurePath("trash", Path(args['image']).stem + f".jpg")
+		cv.imwrite(str(save_name_org), orgimg)
+
 	cv.waitKey(0)
 	cv.destroyAllWindows()
-
-
-	# img = cv.dilate(img,kernel,iterations = 1)
-	# cv.threshold(img,0,255,cv.THRESH_BINARY+cv.THRESH_OTSU)
-	# for i in range(len(img) - 2):
-	# 	for j in range(len(img[1]) - 2):
-	# 		if((img[i][j][1] != img[i+1][j][1] or img[i][j][1] != img[i][j+1][1]) and img[i][j][1] > 0):
-	# 			img[i][j][1] = 0;
-	# 			img[i][j][0] = 0;
-	# 			img[i][j][2] = 0;
-#turns out this was useless lol
-	# 			print(img[i][j])
-	# 		if(img[i][j][0] != 0 or img[i][j][1] != 0 or img[i][j][2] != 0):
-	# 			equalColorR = img[i][j][0]
-	# 			equalColorG = img[i][j][1]
-	# 			equalColorB = img[i][j][2]
-	# 			tempBlobSize = 0
-	# 			tempBlobSize = checkBlobs(img, i, j, equalColorR, equalColorG, equalColorB, 0)
-	# 			if(tempBlobSize > maxBlobSize):
-	# 				maxi = i
-	# 				maxj = j
-	# 				maxBlobSize = tempBlobSize
-	# print(maxi, maxj)
-	# for i in range(15):
-	# 	img[i+maxi][maxj][0] = 255
-
-# def checkBlobs(img, i, j, equalColorR, equalColorG, equalColorB, tempBlobSize):
-# 	if(i<0 or j<0 or i>len((img) - 1) or j>len((img[1]) - 1)):
-# 		print('here')
-# 		return tempBlobSize
-# 	elif((img[i][j][0] - int(equalColorR) < 10) and (img[i][j][1] - int(equalColorG) < 10) and (img[i][j][2] - int(equalColorB) < 10)):
-# 		tempBlobSize+=1
-# 		img[i][j][2] = img[i][j][1] = img[i][j][0] = 0
-# 		if(j+1 < len(img[1]) -1 ):
-# 			return checkBlobs(img, i, j+1, equalColorR, equalColorG, equalColorB, tempBlobSize)
-# 	return tempBlobSize
 
 if __name__ == '__main__':
     main()

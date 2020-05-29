@@ -20,6 +20,18 @@ class Object:
         #should be the
         self.img = img
 
+    def image_cleaning(self, img):
+	    red = []
+        for i in range(img.shape[0]):
+    		for j in range(img.shape[1]):
+    			if(img[i][j] > 0):
+    				red.append([i, j])
+    	if(len(red) > 10000):
+    		for i in red:
+    			img[i[0]][i[1]] = 0;
+    	kernel = np.ones((3,5),np.uint8)
+    	img = cv.morphologyEx(img, cv.MORPH_OPEN, kernel)
+
     def detectEdges(self):
         """
         Will take an image and use edge detection to find the high frequency changes to detect edges
