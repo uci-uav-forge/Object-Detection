@@ -6,7 +6,20 @@ def write_color_output(img_path: 'str_to_path includes .jpg or .png'):
     cv2.imwrite('color_detect/'+img_path)
 
 def detect_color(image: 'opencv-image'):
-
+    '''
+        Takes in an image and then finds the best colormask of the image.
+        This is to find whatever strong color there is inside the image.
+        
+        It chooses the best image by doing a Hough Transform on the a Canny-Edge version of the colormask
+        and then counting the number of lines. (with thresholds to keep it from detecting small blobs)
+        
+        So I set the number of lines to detect a shape to be between 0 and 90.
+        
+        returns the colormasked image and then returns a blurred image.
+        Note:
+            output (colormasked image) is for eventual use with letter_recog
+            output_noproc (blurred image) will be for shape_detect
+    '''
     for color in colors['Modified_RGB']:
         lower,upper = colors['Modified_RGB'][color]
 
