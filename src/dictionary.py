@@ -5,8 +5,7 @@
 #         pass
 
     # def color_ranges(self):
-
-# The 'HSV' lies and deceives. it is actually RGB in disguise cuz the detect code doesn't bother to change it to to RGB for bitwise and. LIIIIES
+    
 colors = { 
     'HSV':
         { 
